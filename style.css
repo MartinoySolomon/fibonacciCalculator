@@ -1,3 +1,87 @@
-body{
-    margin:0 auto;
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+:root {
+	--color-primary: #ffffff;
+	--color-secondary: #f8f9fa;
+	--color-nav: #8540f5;
+	--color-background: #f1f1f1;
+	--color-text: #343a40;
+	--border-radius: 8px;
+	--font-weight-bold: 700;
+	--font-weight-regular: 300;
+}
+body {
+	margin: 0 auto;
+	width: 100vw;
+	height: 100vh;
+	font-family: "Inter", sans-serif;
+	margin: 0 auto;
+	header {
+		width: 100%;
+		height: 8%;
+		nav {
+			display: flex;
+			align-items: flex-end;
+			width: 100%;
+			height: 100%;
+			background-color: var(--color-nav);
+			color: var(--color-secondary);
+			.nav-item {
+				padding: 1rem;
+			}
+			.nav-item-title {
+				color: var(--color-primary);
+				font-weight: var(--font-weight-bold);
+				font-size: 1.25rem;
+			}
+		}
+	}
+	main {
+		background-color: var(--color-background);
+		color: var(--color-text);
+		height: 92%;
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		.calculator {
+			background-color: var(--color-primary);
+			color: var(--color-text);
+			width: 60%;
+			height: 30%;
+			padding: 2rem;
+			border-radius: var(--border-radius);
+			border: 1px solid #dee2e6;
+			.calculator-title {
+				font-weight: var(--font-weight-bold);
+				font-size: 2.5rem;
+				margin-bottom: 2rem;
+			}
+			.calculator-form {
+				font-size: 1.5rem;
+				font-weight: var(--font-weight-regular);
+                margin-bottom: 2rem;
+                display: flex;
+align-items: center;
+				input {
+					border: 1px solid #dee2e6;
+					border-radius: var(--border-radius);
+                    height:2.4rem;
+                    width: 4.25rem;
+                    margin: 0 1rem;
+                    padding:0 1rem;
+                    box-sizing: border-box;
+                    color: #ADB5BD;
+				}
+				span {
+					font-weight: var(--font-weight-bold);
+				}
+			}
+            .calculator-result{
+                font-size:2rem;
+                font-weight: var(--font-weight-bold);
+                text-decoration: underline;
+                justify-self: center;
+            }
+		}
+	}
 }
