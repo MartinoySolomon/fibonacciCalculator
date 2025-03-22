@@ -1,9 +1,9 @@
 const fibNum = document.getElementById("fibNum");
 const resultDiv = document.querySelector(".calculator-result");
-const x = 8;
-fibNum.placeholder = x;
-resultDiv.innerHTML = forFibonacci(x);
 
+fibNum.addEventListener("blur", function () {
+	resultDiv.innerHTML = fibonacci(parseInt(fibNum.value));
+});
 
 function forFibonacci(n){
 	if (n==1 || n==2) return 1
