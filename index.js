@@ -12,3 +12,4 @@ function fibonacci(n) {
 				(Math.pow(2, n) * Math.sqrt(5))
 		);
 }
+console.log('just checking');
