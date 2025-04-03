@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 :root {
-	--color-primary: #7749F8;
+	--color-primary: #7749f8;
 	--color-secondary: #f8f9fa;
 	--color-nav: #8540f5;
 	--color-background: #f1f1f1;
@@ -12,7 +12,7 @@
 	--font-weight-semi-bold: 500;
 	--font-weight-regular: 300;
 }
-*{
+* {
 	box-sizing: border-box;
 }
 body {
@@ -50,7 +50,7 @@ body {
 		justify-content: center;
 		align-items: center;
 		.calculator {
-			background-color:#ffffff;
+			background-color: #ffffff;
 			color: var(--color-text);
 			width: 60%;
 			padding: 2rem;
@@ -80,18 +80,23 @@ body {
 					box-sizing: border-box;
 					color: #adb5bd;
 				}
+				input[type="number"]::-webkit-inner-spin-button,
+				input[type="number"]::-webkit-outer-spin-button {
+					-webkit-appearance: none;
+					margin: 0;
+				}
 				span {
 					font-weight: var(--font-weight-bold);
 				}
-				.reset-btn{
+				.reset-btn {
 					display: flex;
 					align-items: center;
-					width:6.8rem;
-					height:2.75rem;
+					width: 6.8rem;
+					height: 2.75rem;
 					justify-content: space-between;
 					font-weight: var(--font-weight-bold);
 					font-size: 1rem;
-					color:var(--color-primary);
+					color: var(--color-primary);
 					background-color: transparent;
 					border: 1px solid var(--color-primary);
 					border-radius: var(--border-radius);
@@ -114,21 +119,19 @@ body {
 				flex-shrink: 0;
 				align-self: center;
 				animation: rotation 1s linear infinite;
-				}
-			.hidden{
+			}
+			.hidden {
 				display: none;
 			}
 		}
 	}
 }
 
-
-
-    @keyframes rotation {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
-    } 
+@keyframes rotation {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
