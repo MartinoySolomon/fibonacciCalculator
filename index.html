@@ -31,12 +31,19 @@
                     Fibonacci Calculator
                 </div>
                 <div class="calculator-form">
-                    The Fibonacci of <input
-                        type="text"
-                        id="fibNum"
-                    /><span> is</span>
+                    <div>
+                        The Fibonacci of <input
+                            type="number"
+                            id="fibNum"
+                        /><span> is</span></div>
+                    <button
+                        type="button"
+                        class="reset-btn"
+                    ><img src="./assets/reset_icon.svg" />Reset</button>
                 </div>
-                <div class="calculator-result"></div>
+                <div class="error hidden">Error</div>
+                <div class="loading hidden"></div>
+                <div class="calculator-result hidden"></div>
             </div>
         </main>
         <script src="index.js"></script>
