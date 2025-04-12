@@ -1,9 +1,62 @@
 const fibNum = document.getElementById("fibNum");
 const resultDiv = document.querySelector(".calculator-result");
+const loadingElement = document.querySelector(".loading");
+const errorElement = document.querySelector(".error");
 
-fibNum.addEventListener("blur", function () {
-	resultDiv.innerHTML = fibonacci(parseInt(fibNum.value));
-});
+fibNum.addEventListener("blur", showResult);
+
+async function showResult() {
+	const fiboResult = await getFibonacci(parseInt(fibNum.value));
+	console.log(fiboResult);
+	// resultDiv.textContent = `${fiboResult.result}`;
+}
+
+function showLoading(isShow) {
+	loadingElement.classList.toggle("hidden", !isShow);
+}
+
+function showError(err) {
+	errorElement.classList.remove("hidden");
+	errorElement.textContent = err;
+	fibNum.classList.add("warning");
+}
+
+function hideResult() {
+	resultDiv.classList.add("hidden");
+}
+
+function hideError() {
+	errorElement.classList.add("hidden");
+	fibNum.classList.remove("warning");
+
+}
+function resetUI() {
+	hideError();
+	hideResult();
+}
+
+async function getFibonacci(number) {
+	try {
+		resetUI();
+		showLoading(true);
+		const fetchNumber = await fetch(
+			`http://localhost:3000/calculate/${number}`
+		);
+		if (!fetchNumber.ok) {
+			throw new Error("not a number");
+		}
+		const jsonNumber = await fetchNumber.json();
+		resultDiv.classList.remove("hidden");
+		resultDiv.textContent = `${jsonNumber.result}`;
+		return jsonNumber;
+	} catch (err) {
+		showError(err);
+	} finally {
+		showLoading(false);
+	}
+}
+
+
 
 function fibonacci(n){
 	if (n==1 || n==2) return 1
