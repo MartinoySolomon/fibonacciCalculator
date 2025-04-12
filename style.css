@@ -53,6 +53,7 @@ body {
 			background-color: #ffffff;
 			color: var(--color-text);
 			width: 60%;
+			height: 18rem;
 			padding: 2rem;
 			border-radius: var(--border-radius);
 			border: 1px solid #dee2e6;
@@ -103,12 +104,18 @@ body {
 					padding: 0.5rem 1rem;
 					cursor: pointer;
 				}
+				.warning {
+					border: 1px solid #ea868f;
+					box-shadow: 0px 0px 0px 3px #dc354533;
+				}
 			}
 			.calculator-result {
 				font-size: 2rem;
 				font-weight: var(--font-weight-bold);
 				text-decoration: underline;
 				align-self: center;
+				line-height: 4rem;
+				height: 4rem;
 			}
 			.loading {
 				width: 4rem;
@@ -122,6 +129,17 @@ body {
 			}
 			.hidden {
 				display: none;
+			}
+			.error {
+				width: 100%;
+				height: 3rem;
+				line-height: 3rem;
+				padding: 0 1rem;
+				border-radius: var(--border-radius);
+				font-size: 0.75rem;
+				background-color: #f8d7da;
+				color: #58151c;
+				border: 1px solid #ea868f;
 			}
 		}
 	}
