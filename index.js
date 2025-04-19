@@ -2,6 +2,10 @@ const fibNum = document.getElementById("fibNum");
 const resultDiv = document.querySelector(".calculator-result");
 const loadingElement = document.querySelector(".loading");
 const errorElement = document.querySelector(".error");
+const previousResultElement = document.querySelector(
+	".prevoius-results-content"
+);
+
 document.querySelector(".reset-btn").addEventListener("click", () => {
 	location.reload();
 });
@@ -53,6 +57,7 @@ async function getFibonacci() {
 		}
 		const data = await response.json();
 		showResult(data.result);
+		showPreviousCalc();
 	} catch (err) {
 		showError(err.message);
 	} finally {
@@ -85,7 +90,26 @@ async function showPreviousCalc() {
 			const errMsg = await previousCalc.text();
 			throw new Error(`${previousCalc.status} - ${errMsg}`);
 		}
-		console.log(previousCalc);
+		previousCalc.forEach((element) => {
+			const resultLine = document.createElement("div");
+			resultLine.classList.add("prevoius-results-line");
+
+			const createdDate = new Date(element.createdDate);
+			let minutes = createdDate.getMinutes();
+			let month = createdDate.getMonth() + 1;
+			if (minutes < 10) minutes = `0${minutes}`;
+			const newDateString = `${createdDate.getDate()}/${month}/${createdDate.getFullYear()}  ${createdDate.getHours()}:${minutes}`;
+
+			const prevoiusResult = document.createElement("div");
+			prevoiusResult.classList.add("result");
+			prevoiusResult.innerHTML = `The Fibonacci of <span>${element.number}</span> is <span>${element.result}</span>`;
+			const resultDate = document.createElement("div");
+			resultDate.classList.add("result-time");
+			resultDate.innerHTML = `${newDateString}`;
+			resultLine.appendChild(prevoiusResult);
+			resultLine.appendChild(resultDate);
+			previousResultElement.appendChild(resultLine);
+		});
 	} catch (err) {
 		showError(err);
 	} finally {

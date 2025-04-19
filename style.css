@@ -16,9 +16,10 @@
 	box-sizing: border-box;
 }
 body {
+	overflow-x: hidden;
 	margin: 0 auto;
 	width: 100vw;
-	height: 100vh;
+	min-height: 100vh;
 	font-family: "Inter", sans-serif;
 	margin: 0 auto;
 	header {
@@ -56,8 +57,8 @@ body {
 		.calculator {
 			background-color: #ffffff;
 			color: var(--color-text);
-			width: 60%;
-			height: 22rem;
+			width: 80%;
+			height: 20rem;
 			padding: 2rem;
 			border-radius: var(--border-radius);
 			border: 1px solid #dee2e6;
@@ -166,8 +167,7 @@ body {
 			top: -20px;
 			background-color: #ffffff;
 			color: var(--color-text);
-			width: 60%;
-			height: 18rem;
+			width: 80%;
 			padding: 2rem;
 			border-radius: var(--border-radius);
 			border: 1px solid #dee2e6;
