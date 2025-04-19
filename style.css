@@ -55,6 +55,7 @@ body {
 			display: none;
 		}
 		.calculator {
+			margin-top: 2rem;
 			background-color: #ffffff;
 			color: var(--color-text);
 			width: 80%;
