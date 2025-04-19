@@ -6,6 +6,8 @@ document.querySelector(".reset-btn").addEventListener("click", () => {
 	location.reload();
 });
 
+showPreviousCalc();
+
 fibNum.addEventListener("blur", getFibonacci);
 
 function showResult(number) {
@@ -53,7 +55,40 @@ async function getFibonacci() {
 		showResult(data.result);
 	} catch (err) {
 		showError(err.message);
-	} finally{
+	} finally {
+		showLoading(false);
+	}
+}
+
+async function getPreviousCalc() {
+	try {
+		showLoading(true);
+		const response = await fetch("http://localhost:3000/results");
+		if (!response.ok) {
+			const errMsg = await response.text();
+			throw new Error(`${response.status} - ${errMsg}`);
+		}
+		const data = await response.json();
+		return data.results;
+	} catch (err) {
+		showError(err);
+	} finally {
+		showLoading(false);
+	}
+}
+
+async function showPreviousCalc() {
+	try {
+		showLoading(true);
+		const previousCalc = await getPreviousCalc();
+		if (previousCalc == undefined) {
+			const errMsg = await previousCalc.text();
+			throw new Error(`${previousCalc.status} - ${errMsg}`);
+		}
+		console.log(previousCalc);
+	} catch (err) {
+		showError(err);
+	} finally {
 		showLoading(false);
 	}
 }
