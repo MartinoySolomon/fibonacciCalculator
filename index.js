@@ -17,8 +17,14 @@ document.querySelector(".reset-btn").addEventListener("click", () => {
 showPreviousCalc();
 
 fibNum.addEventListener("blur", getFibonacci);
-ascRadio.addEventListener("change", showPreviousCalc);
-descRadio.addEventListener("change", showPreviousCalc);
+ascRadio.addEventListener("change", () => {
+	resetUI();
+	showPreviousCalc();
+});
+descRadio.addEventListener("change", () => {
+	resetUI();
+	showPreviousCalc();
+});
 
 function showResult(number) {
 	resultDiv.classList.remove("hidden");
