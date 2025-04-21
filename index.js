@@ -3,6 +3,9 @@ const resultDiv = document.querySelector(".calculator-result");
 const loadingElement = document.querySelector(".loading");
 const errorElement = document.querySelector(".error");
 const save = document.getElementById("save");
+const ascRadio = document.getElementById("asc");
+const descRadio = document.getElementById("desc");
+
 const previousResultElement = document.querySelector(
 	".prevoius-results-content"
 );
@@ -14,6 +17,8 @@ document.querySelector(".reset-btn").addEventListener("click", () => {
 showPreviousCalc();
 
 fibNum.addEventListener("blur", getFibonacci);
+ascRadio.addEventListener("change", showPreviousCalc);
+descRadio.addEventListener("change", showPreviousCalc);
 
 function showResult(number) {
 	resultDiv.classList.remove("hidden");
@@ -74,7 +79,8 @@ async function getFibonacci() {
 			showResult(data.result);
 			showPreviousCalc();
 		} else {
-			showResult(forFibonacci(fibNum.value));
+			if (number <= 0) throw new Error(`Number must be bigger than 0`);
+			else showResult(forFibonacci(fibNum.value));
 		}
 	} catch (err) {
 		showError(err.message);
@@ -108,6 +114,8 @@ async function showPreviousCalc() {
 			const errMsg = await previousCalc.text();
 			throw new Error(`${previousCalc.status} - ${errMsg}`);
 		}
+		if (descRadio.checked == true) previousCalc.reverse();
+		previousResultElement.innerHTML = "";
 		previousCalc.forEach((element) => {
 			const resultLine = document.createElement("div");
 			resultLine.classList.add("prevoius-results-line");
