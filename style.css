@@ -25,6 +25,7 @@ body {
 	header {
 		width: 100%;
 		height: 8%;
+		align-items: flex-end;
 		nav {
 			display: flex;
 			align-items: flex-end;
@@ -34,6 +35,7 @@ body {
 			color: var(--color-secondary);
 			.nav-item {
 				padding: 1rem;
+				cursor: pointer;
 			}
 			.nav-item-title {
 				color: #ffffff;
@@ -144,22 +146,21 @@ body {
 				color: #58151c;
 				border: 1px solid #ea868f;
 			}
-			.save-calc{
-				
-				margin:0.5rem 0;
+			.save-calc {
+				margin: 0.5rem 0;
 				margin-top: auto;
 				display: flex;
 				color: var(--color-text);
 				input[type="checkbox"] {
-					margin-right:0.5rem ;
+					margin-right: 0.5rem;
 					width: 1rem;
 					height: 1rem;
-					border: 1px solid #ABB5BE;
+					border: 1px solid #abb5be;
 					border-radius: 2px;
-					cursor: pointer;						
+					cursor: pointer;
 				}
 				input[type="checkbox"]:checked {
-					filter: hue-rotate(400deg); 
+					filter: hue-rotate(400deg);
 				}
 			}
 		}
@@ -182,18 +183,18 @@ body {
 					margin-bottom: 1rem;
 					font-weight: var(--font-weight-bold);
 				}
-				.sort-selector{
+				.sort-selector {
 					font-size: 1rem;
 					display: flex;
 					align-items: center;
 					input[type="radio"] {
-						appearance:none;
+						appearance: none;
 						margin: 0 0.5rem;
 						width: 1rem;
 						height: 1rem;
-						border: 1px solid #ABB5BE;
+						border: 1px solid #abb5be;
 						border-radius: 50%;
-						cursor: pointer;						
+						cursor: pointer;
 					}
 					input[type="radio"]:checked {
 						border: 5px solid var(--color-primary);

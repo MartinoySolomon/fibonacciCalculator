@@ -85,8 +85,8 @@ async function getFibonacci() {
 			showResult(data.result);
 			showPreviousCalc();
 		} else {
-			if (!number) throw new Error(`Please enter a number to calculate`);
-			else if (number <= 0) throw new Error(`Number must be bigger than 0`);
+			if (number <= 0) throw new Error(`Number must be bigger than 0`);
+			else if (!number) throw new Error(`Please enter a number to calculate`);
 			else if (number==123) throw new Error(`Number must be lower than 20`);
 			else showResult(forFibonacci(number));
 		}
